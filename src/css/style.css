@@ -1,0 +1,28 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+#gameboard {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background-color: gray;
+}
+
+.draggable {
+    width: 100px;
+    height: 100px;
+    background-color: darkgray;
+    position: absolute;
+
+}
+
+.draggable.is-pointer-down {
+    opacity: 0.7;
+    z-index: 2;
+}
+
+.draggable.is-dragging {
+    opacity: 0.6;
+}
