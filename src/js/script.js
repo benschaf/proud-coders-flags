@@ -7,13 +7,15 @@ const flags = {
         name: 'Female Flag',
         backgroundColor: 'pink',
         position: 0,
-        parents: [],
+        parents: null,
+        draggie: null,
     },
     "maleFlag": {
         name: 'Male Flag',
         backgroundColor: 'blue',
         position: 1,
-        parents: [],
+        parents: null,
+        draggie: null,
     },
     "gayFlag": {
         position: 2,
@@ -23,6 +25,7 @@ const flags = {
             'a': 'Male Flag',
             'b': 'Male Flag'
         },
+        draggie: null,
     },
 };
 
@@ -111,22 +114,19 @@ function dragEndHandler(event, pointer) {
     // Retrieve the draggabilly instance
     const draggieX = $(this).data('draggabilly');
     const nameParentX = draggieX.metadata.name;
-    console.log("Metadata: " + nameParentX);
 
 
     draggedAwayFlags.forEach(flag => {
         const draggieY = flag.data('draggabilly');
-        console.log("DATA: ::::::::: " + draggieY);
         position = draggieY.position;
-        console.log("position" + position.x);
         // check if the mouse cursor is on the flag
         const flagId = draggieY.metadata.id;
         const draggedFlagId = draggieX.metadata.id;
 
-        console.log("FlagId: " + flagId + ", DraggedFlagId: " + draggedFlagId);
 
         if (flagId === draggedFlagId) {
-            console.log("SAME ID");
+            // Same ID
+            // This will have to be updated so that the id is comprised of the overarching object and the draggie instances
             return;
         }
 
@@ -135,13 +135,14 @@ function dragEndHandler(event, pointer) {
 
         if (adjustedPositionX <= pointer.pageX && pointer.pageX <= adjustedPositionX + 100 &&
             adjustedPositionY <= pointer.pageY && pointer.pageY <= adjustedPositionY + 100) {
-            console.log("hi");
             // Mouse cursor is on the flag
             const nameParentY = draggieY.metadata.name;
-            console.log("Names. NameX: " + nameParentX + ", NameY: " + nameParentY);
 
 
             for (const [key, value] of Object.entries(flags)) {
+                if (value.parents === null) {
+                    continue;
+                }
                 if (value.parents.a === nameParentX && value.parents.b === nameParentY ||
                     value.parents.a === nameParentY && value.parents.b === nameParentX) {
                     const newFlag = flags[key];
@@ -152,8 +153,6 @@ function dragEndHandler(event, pointer) {
                     });
                     createAndAppendDraggable(newFlag);
 
-                    console.log("make new flag");
-                    console.log(flag);
                     flag.remove();
                     $(this).remove();
                     // I need to remove the flag from the draggedAwayFlags array
@@ -164,11 +163,6 @@ function dragEndHandler(event, pointer) {
             }
         }
     });
-
-    // flags.gayFlag.position = nextPosition;
-    // nextPosition++;
-    // discoveredFlags.push(flags.gayFlag);
-    // createAndAppendDraggable(flags.gayFlag);
 }
 
 // Initial call for existing draggable elements
