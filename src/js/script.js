@@ -8,8 +8,9 @@ class Flag {
         this.backgroundColor = backgroundColor;
         this.position = position;
         this.parents = parents;
-        this.id = currentFlagId;
         this.draggies = [];
+        this.id = currentFlagId;
+        currentFlagId++;
     }
 }
 
@@ -46,6 +47,12 @@ const flagData = {
 
     },
 };
+
+let flags = {};
+
+for (const [key, value] of Object.entries(flagData)) {
+    flags[key] = new Flag(value.name, value.backgroundColor, value.position, value.parents);
+}
 
 let discoveredFlags = [
     flags["femaleFlag"],
