@@ -160,8 +160,6 @@ function dragEndHandler(event, pointer) {
                     // The thing is it needs to be a the specific flag
                     draggedAwayFlags.splice(draggedAwayFlags.indexOf(flag), 1);
                     draggedAwayFlags.splice(draggedAwayFlags.indexOf(this), 1);
-
-
                 }
             }
         }
