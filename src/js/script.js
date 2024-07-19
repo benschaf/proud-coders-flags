@@ -1,5 +1,29 @@
 const gameboard = document.getElementById('gameboard');
 
+let nextPosition = 2;
+
+const flags = {
+    "femaleFlag": {
+        name: 'Female Flag',
+        backgroundColor: 'pink',
+        position: 0,
+    },
+    "maleFlag": {
+        name: 'Male Flag',
+        backgroundColor: 'blue',
+        position: 1,
+    },
+    "gayFlag": {
+        name: 'Gay Pride Flag',
+        backgroundColor: 'red',
+        parents: ['Female Flag', 'Male Flag'],
+    },
+};
+
+let discoveredFlags = [
+    flags["femaleFlag"],
+    flags["maleFlag"],
+];
 
 /**
  * Creates and appends a draggable div element to the gameboard.
@@ -7,13 +31,13 @@ const gameboard = document.getElementById('gameboard');
  * @param {Object} element - The element object containing the properties of the draggable div.
  * @param {number} i - The index of the draggable div.
  */
-function createAndAppendDraggable(element, i) {
+function createAndAppendDraggable(element) {
     const draggableDiv = document.createElement('div');
     draggableDiv.classList.add('draggable');
     draggableDiv.style.backgroundColor = element.backgroundColor;
-    draggableDiv.style.left = element.position.x + 'px';
-    draggableDiv.style.top = element.position.y + 10 + 10 * i + 'px';
-    draggableDiv.textContent = element.content;
+    draggableDiv.style.left = '10px'
+    draggableDiv.style.top = 10 + element.position*100 + 10 * element.position + 'px'
+    draggableDiv.textContent = element.name;
 
     gameboard.appendChild(draggableDiv);
     makeDraggableAndClone(draggableDiv);
@@ -43,26 +67,6 @@ function makeDraggableAndClone(draggable) {
 }
 
 // Initial call for existing draggable elements
-document.addEventListener('DOMContentLoaded', function () {
-    const initialDraggableElements = [{
-            content: 'male flag',
-            backgroundColor: 'blue',
-            position: {
-                x: 10,
-                y: 0
-            },
-        },
-        {
-            content: 'female flag',
-            backgroundColor: 'pink',
-            position: {
-                x: 10,
-                y: 100
-            },
-        }
-    ];
-
-    for (let i = 0; i < initialDraggableElements.length; i++) {
-        createAndAppendDraggable(initialDraggableElements[i], i);
-    }
+$(document).ready(function () {
+    discoveredFlags.forEach(createAndAppendDraggable);
 });
