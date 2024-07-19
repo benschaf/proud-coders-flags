@@ -43,27 +43,32 @@ function createAndAppendDraggable(element) {
     makeDraggableAndClone(draggableDiv);
 }
 
-// Adjusted makeDraggableAndClone function to work with DOM elements
-/**
- * Makes an element draggable and clones it when dragged.
- * This is achieved using the Draggabilly library.
- * @param {HTMLElement} draggable - The element to make draggable.
- */
 function makeDraggableAndClone(draggable) {
     $(draggable).draggabilly({
         containment: true,
-    }).on('dragStart', function (event, pointer) {
-        const draggie = $(this).data('draggabilly');
-        const position = draggie.position;
-        console.log("position: " + position.x);
-        const clone = this.cloneNode(true); // Clone the DOM element
-        clone.style.left = position.x + 'px';
-        clone.style.top = position.y + 'px';
-        clone.classList.remove('is-pointer-down', 'is-dragging');
-        gameboard.appendChild(clone);
-        // Call the same function to make the clone draggable and able to clone itself
-        makeDraggableAndClone(clone);
-    });
+    }).on('dragStart', dragStartHandler)
+      .on('dragEnd', dragEndHandler);
+}
+
+function dragStartHandler(event, pointer) {
+    const draggie = $(this).data('draggabilly');
+    const position = draggie.position;
+
+    const clone = this.cloneNode(true); // Clone the DOM element
+    clone.style.left = position.x + 'px';
+    clone.style.top = position.y + 'px';
+    clone.classList.remove('is-pointer-down', 'is-dragging');
+
+    gameboard.appendChild(clone);
+    makeDraggableAndClone(clone);
+}
+
+function dragEndHandler(event, pointer) {
+    console.log("ended dragging");
+    flags.gayFlag.position = nextPosition;
+    nextPosition++;
+    discoveredFlags.push(flags.gayFlag);
+    createAndAppendDraggable(flags.gayFlag);
 }
 
 // Initial call for existing draggable elements
