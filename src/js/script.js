@@ -2,20 +2,29 @@ const gameboard = document.getElementById('gameboard');
 
 let currentFlagId = 0;
 
-const flags = {
+class Flag {
+    constructor(name, backgroundColor, position, parents) {
+        this.name = name;
+        this.backgroundColor = backgroundColor;
+        this.position = position;
+        this.parents = parents;
+        this.id = currentFlagId;
+        this.draggies = [];
+    }
+}
+
+const flagData = {
     "femaleFlag": {
         name: 'Female Flag',
         backgroundColor: 'pink',
         position: 0,
         parents: null,
-        draggie: null,
     },
     "maleFlag": {
         name: 'Male Flag',
         backgroundColor: 'blue',
         position: 1,
         parents: null,
-        draggie: null,
     },
     "gayFlag": {
         position: 2,
@@ -23,9 +32,18 @@ const flags = {
         backgroundColor: 'red',
         parents: {
             'a': 'Male Flag',
-            'b': 'Male Flag'
+            'b': 'Male Flag',
         },
-        draggie: null,
+    },
+    "testFlag": {
+        position: 3,
+        name: 'test flag',
+        backgroundColor: 'green',
+        parents: {
+            'a': 'Gay Pride Flag',
+            'b': 'Male Flag',
+        },
+
     },
 };
 
@@ -47,19 +65,7 @@ function createAndAppendDraggable(element) {
     draggableDiv.classList.add('draggable');
     draggableDiv.style.backgroundColor = element.backgroundColor;
     draggableDiv.style.left = '10px';
-    draggableDiv.style.top = 10 + element.position * 100 + 10 * element.position + 'px'
-    draggableDiv.textContent = element.name;
-
-    gameboard.appendChild(draggableDiv);
-    makeDraggableAndClone(draggableDiv, element);
-}
-
-function createAndAppendDraggable(element) {
-    const draggableDiv = document.createElement('div');
-    draggableDiv.classList.add('draggable');
-    draggableDiv.style.backgroundColor = element.backgroundColor;
-    draggableDiv.style.left = '10px';
-    draggableDiv.style.top = 10 + element.position * 100 + 10 * element.position + 'px';
+    draggableDiv.style.top = `${10 + element.position * 100 + 10 * element.position}px`;
     draggableDiv.textContent = element.name;
 
     gameboard.appendChild(draggableDiv);
