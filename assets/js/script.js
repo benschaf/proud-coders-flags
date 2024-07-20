@@ -155,15 +155,6 @@ class DOMFlag {
     }
 }
 
-
-/**
- * Creates and appends a draggable div flag to the gameboard.
- *
- * @param {Object} flag - The flag object containing the properties of the draggable div.
- * @param {Object} flag - The flag object containing the properties of the draggable div.
- * @param {Object} flag - The flag object containing the properties of the draggable div.
- * @param {number} i - The index of the draggable div.
- */
 function createAndAppendDraggable(flag, position) {
     let draggedAway = false;
     const draggableDiv = document.createElement('div');
@@ -209,7 +200,7 @@ $(document).ready(function () {
             discoveredFlags.forEach((flag, i) => {
                 flag.discovered = true;
                 flag.setPosition(i);
+                createAndAppendDraggable(flag, null)
             });
-            discoveredFlags.forEach(flag => createAndAppendDraggable(flag, null));
         });
 });
