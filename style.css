@@ -10,3 +10,8 @@ h1 {
     font-family: 'Lobster', sans-serif;
     font-size: large;
 }
+
+#gameboard {
+    background-image: none;
+    background-color: darkslategrey;
+}
