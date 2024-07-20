@@ -1,0 +1,57 @@
+/* Fonts import */ 
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Lobster&display=swap');
+
+/* Asterix wildcard selector to override default styles added by browser */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General styles */
+body {
+    background: linear-gradient(to right top, #651173, #8a0049, #8e1f23, #7e4201, #635a00, #606800, #577700, #478613, #6a9305, #8ea000, #b3ab00, #d9b504) no-repeat;
+    font-family: 'Fira Mono' , sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Lobster', sans-serif;
+    font-size: large;
+}
+
+a {
+    text-transform: uppercase;
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Form Styles */
+#start {
+    width: 100vw;
+}
+
+#start-form {
+    width: 90vw;
+    background-color: darkslategray;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px 2px darkslategray;
+    margin: 10px auto;
+}
+
+fieldset {
+    padding: 10px 5px;
+    margin: 5px 5px;
+    border: 2px solid #651173;
+    border-radius: 2px;
+}
+
+/* Game.html styles */ 
+#gameboard {
+    background-image: none;
+    background-color: darkslategrey;
+}
+
+
