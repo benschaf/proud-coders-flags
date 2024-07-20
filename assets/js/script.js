@@ -10,6 +10,7 @@ class Flag {
     name;
     backgroundColor; // This will be changed to image
     backgroundImage;
+    backgroundImage;
     parents;
     id;
     position = null;
@@ -18,6 +19,7 @@ class Flag {
         this.name = name;
         this.backgroundColor = backgroundColor;
         this.parents = parents;
+        this.backgroundImage = backgroundImage;
         this.backgroundImage = backgroundImage;
         this.id = id;
     }
@@ -39,6 +41,7 @@ class Flag {
 class DOMFlag {
     domElement;
     flagInstanceId;
+    backgroundImage;
     backgroundImage;
     draggie;
     id;
@@ -158,12 +161,18 @@ class DOMFlag {
  *
  * @param {Object} flag - The flag object containing the properties of the draggable div.
  * @param {Object} flag - The flag object containing the properties of the draggable div.
+ * @param {Object} flag - The flag object containing the properties of the draggable div.
  * @param {number} i - The index of the draggable div.
  */
 function createAndAppendDraggable(flag, position) {
     let draggedAway = false;
     const draggableDiv = document.createElement('div');
     draggableDiv.classList.add('draggable');
+    draggableDiv.style.backgroundImage = `url(assets/img/flags/${flag.backgroundImage})`;
+    draggableDiv.style.backgroundSize = 'contain';
+    draggableDiv.style.backgroundRepeat = 'no-repeat';
+    draggableDiv.style.backgroundPosition = 'center';
+    draggableDiv.style.height = '60px';
     draggableDiv.style.backgroundImage = `url(assets/img/flags/${flag.backgroundImage})`;
     draggableDiv.style.backgroundSize = 'contain';
     draggableDiv.style.backgroundRepeat = 'no-repeat';
@@ -177,6 +186,7 @@ function createAndAppendDraggable(flag, position) {
         draggableDiv.style.top = position.y + 'px';
         draggedAway = true;
     } else {
+        draggableDiv.style.top = `${10 + flag.position * 60 + flag.position * 10}px`;
         draggableDiv.style.top = `${10 + flag.position * 60 + flag.position * 10}px`;
     }
 
