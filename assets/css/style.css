@@ -129,6 +129,7 @@ fieldset {
 /* Makes footer stick to bottom */
 footer {
     margin-top: auto;
+    width: 100%;
 }
 
 #creator-github {
