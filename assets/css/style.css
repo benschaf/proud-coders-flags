@@ -125,6 +125,24 @@ fieldset {
     opacity: 0.6;
 }
 
+/* Footer */
+/* Makes footer stick to bottom */
+footer {
+    margin-top: auto;
+}
+
+#creator-github {
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+
+/* Footer Icons */
+#creator-github {
+    font-size: 120%;
+}
+
 /* Media query: tablets and larger (768px and up) */
 @media screen and (min-width: 768px) {
     #start-form {
