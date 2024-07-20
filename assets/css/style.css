@@ -185,6 +185,18 @@ dialog p {
     opacity: 0.6;
 }
 
+#flag-info-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+#flag-info-title, #flag-info-description {
+    text-align: center;
+    margin: 20px;
+}
+
 /* Footer */
 /* Makes footer stick to bottom */
 footer {

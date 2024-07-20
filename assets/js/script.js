@@ -71,6 +71,17 @@ class DOMFlag {
             this.dragStartHandler(event, pointer, this);
         }).on('dragEnd', (event, pointer) => {
             this.dragEndHandler(event, pointer);
+        }).on('staticClick', (event, pointer) => {
+            const flagInstance = this.getFlagInstance();
+
+            document.getElementById('flag-info-title').textContent = flagInstance.name;
+            // document.getElementById('flag-info-description').textContent = flagInstance.description;
+            document.getElementById('flag-info-image').src = `assets/img/flags/${this.backgroundImage}`;
+            document.getElementById('flag-info-image').alt = flagInstance.name;
+
+            // Show the modal
+            const modal = document.getElementById('flag-info');
+            modal.showModal();
         });
 
         // set the position to absolute again because draggabilly changes it to relative
