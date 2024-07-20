@@ -1,4 +1,4 @@
-/* Fonts import */ 
+/* Fonts import */
 @import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap');
 
 /* Asterix wildcard selector to override default styles added by browser */
@@ -11,10 +11,11 @@
 /* General styles */
 body {
     background: linear-gradient(to right top, #651173, #8a0049, #8e1f23, #7e4201, #635a00, #606800, #577700, #478613, #6a9305, #8ea000, #b3ab00, #d9b504) no-repeat;
-    font-family: 'Fira Mono' , sans-serif;
+    font-family: 'Fira Mono', sans-serif;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
     color: #ffffff;
 }
 
@@ -33,7 +34,7 @@ h1 {
     color: #0339a6;
 }
 
-/* Main section */ 
+/* Main section */
 main {
     display: flex;
     flex-direction: column;
@@ -74,27 +75,45 @@ fieldset {
     border-radius: 4px;
     font-size: 100%;
     padding: 20px 40px;
-    
+
 }
 
 #start-button:hover {
     font-weight: bold;
 }
 
-/* Game.html styles */ 
+/* Game.html styles */
 #gameboard {
     position: relative;
-    width: 500px;
-    height: 500px;
-    background-color: gray;
+    height: 700px;
+    width: 95%;
+    max-width: 800px;
+    margin-top: 20px;
+    background-color: #ffffff99;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 10px;
 }
 
 .draggable {
     width: 100px;
-    height: 100px;
-    background-color: darkgray;
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #00000000;
+    font-weight: bold;
+    cursor: grab;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    user-select: none;
+    margin: 5px;
+}
 
+.draggable:hover {
+    transform: scale(1.05);
+    color: #000
 }
 
 .draggable.is-pointer-down {
@@ -111,6 +130,10 @@ fieldset {
     #start-form {
         width: 70vw;
     }
+
+    #gameboard {
+        width: 80%;
+    }
 }
 
 /* Media query: laptops and desktops (992px and up) */
@@ -119,7 +142,4 @@ fieldset {
         width: 50vw;
     }
 }
-
-
-
 
