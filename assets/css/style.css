@@ -125,6 +125,26 @@ fieldset {
     opacity: 0.6;
 }
 
+/* Game Buttons */
+.music {
+    color: #0339a6;
+    background-color: #ffffff;
+    font-size: 125%;
+    position: absolute;
+    right: 10px; 
+    top: 10px; 
+    padding: 7px 8px;
+    width: auto;
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.music.active {
+    background-color: grey;
+    color: #ffffffc4;
+}
+
 /* Footer */
 /* Makes footer stick to bottom */
 footer {

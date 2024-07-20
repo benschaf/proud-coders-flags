@@ -1,5 +1,32 @@
 const gameboard = document.getElementById('gameboard');
 
+/**
+ * Automatically starts background music when the game.html loads and allows 
+ * toggling the music playback by clicking a button, 
+ * which also changes the button's background color.
+ */
+document.addEventListener('DOMContentLoaded', function () {
+    const musicButton = document.querySelector('.music');
+    const backgroundMusic = document.getElementById('background-music');
+
+    // Automatic start of music when the page is loaded
+    backgroundMusic.play().catch(() => {
+        // If the music failed to play, changes the button's background color
+        musicButton.classList.add('active');
+    });
+
+    // Switching music playback when pressing a button
+    musicButton.addEventListener('click', function () {
+        if (backgroundMusic.paused) {
+            backgroundMusic.play();
+        } else {
+            backgroundMusic.pause();
+        }
+
+        // Toggle 'active' class to change background color
+        musicButton.classList.toggle('active');
+    });
+});
 
 
 let currentFlagId = 0;
