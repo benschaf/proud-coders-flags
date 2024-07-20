@@ -1,5 +1,120 @@
 const gameboard = document.getElementById('gameboard');
 
+const flagData = [
+    {
+        name: 'Asexual',
+        backgroundColor: 'pink',
+        backgroundImage: 'Asexual.png',
+        parents: null,
+    },
+    {
+        name: 'Transgender',
+        backgroundColor: 'blue',
+        backgroundImage: 'Transgender.png',
+        parents: null,
+    },
+    {
+        name: 'Aromantic',
+        backgroundColor: 'red',
+        backgroundImage: 'Aromantic.png',
+        parents: {
+            'a': 'Asexual',
+            'b': 'Transgender',
+        },
+    },
+    {
+        name: 'Bisexual',
+        backgroundColor: 'purple',
+        backgroundImage: 'Bisexual.png',
+        parents: {
+            'a': 'Aromantic',
+            'b': 'Transgender',
+        },
+    },
+    {
+        name: 'Demiboy',
+        backgroundColor: 'lightblue',
+        backgroundImage: 'Demiboy.png',
+        parents: {
+            'a': 'Asexual',
+            'b': 'Bisexual',
+        },
+    },
+    {
+        name: 'Gay Male',
+        backgroundColor: 'darkblue',
+        backgroundImage: 'GayMale.png',
+        parents: {
+            'a': 'Aromantic',
+            'b': 'Demiboy',
+        },
+    },
+    {
+        name: 'Genderqueer',
+        backgroundColor: 'green',
+        backgroundImage: 'Genderqueer.png',
+        parents: {
+            'a': 'Bisexual',
+            'b': 'Gay Male',
+        },
+    },
+    {
+        name: 'Intersex',
+        backgroundColor: 'yellow',
+        backgroundImage: 'Intersex.png',
+        parents: {
+            'a': 'Demiboy',
+            'b': 'Genderqueer',
+        },
+    },
+    {
+        name: 'Lesbian',
+        backgroundColor: 'orange',
+        backgroundImage: 'Lesbian.png',
+        parents: {
+            'a': 'Asexual',
+            'b': 'Intersex',
+        },
+    },
+    {
+        name: 'Nonbinary',
+        backgroundColor: 'gray',
+        backgroundImage: 'Nonbinary.png',
+        parents: {
+            'a': 'Gay Male',
+            'b': 'Lesbian',
+        },
+    },
+    {
+        name: 'Polyamory',
+        backgroundColor: 'black',
+        backgroundImage: 'Polyamory.png',
+        parents: {
+            'a': 'Genderqueer',
+            'b': 'Nonbinary',
+        },
+    },
+    {
+        name: 'Rainbow Flag',
+        backgroundColor: 'rainbow',
+        backgroundImage: 'RainbowFlag.png',
+        parents: {
+            'a': 'Intersex',
+            'b': 'Polyamory',
+        },
+    },
+    {
+        name: 'Rainbow Flag Lavender',
+        backgroundColor: 'lavender',
+        backgroundImage: 'RainbowFlagLavender.png',
+        parents: {
+            'a': 'Nonbinary',
+            'b': 'Rainbow Flag',
+        },
+    },
+];
+
+
 let currentFlagId = 0;
 let flags = [];
 let domFlags = [];
@@ -7,14 +122,16 @@ let domFlags = [];
 class Flag {
     name;
     backgroundColor; // This will be changed to image
+    backgroundImage;
     parents;
     id;
     position = null;
     discovered = false;
-    constructor(name, backgroundColor, parents, id) {
+    constructor(name, backgroundColor, parents, backgroundImage, id) {
         this.name = name;
         this.backgroundColor = backgroundColor;
         this.parents = parents;
+        this.backgroundImage = backgroundImage;
         this.id = id;
     }
 
@@ -28,18 +145,19 @@ class Flag {
     }
 
     addAndDisplayDomElement(domElement, draggedAway) {
-        const domFlag = new DOMFlag(domElement, this.id, draggedAway);
+        const domFlag = new DOMFlag(domElement, this.id, this.backgroundImage, draggedAway);
     }
 }
 
 class DOMFlag {
     domElement;
     flagInstanceId;
+    backgroundImage;
     draggie;
     id;
     draggedAway;
 
-    constructor(domElement, flagInstanceId, draggedAway) {
+    constructor(domElement, flagInstanceId, backgroundImage, draggedAway) {
         this.domElement = domElement;
         this.flagInstanceId = flagInstanceId;
         this.id = currentFlagId;
@@ -147,38 +265,6 @@ class DOMFlag {
     }
 }
 
-const flagData = [{
-        name: 'Female Flag',
-        backgroundColor: 'pink',
-        position: 0,
-        parents: null,
-    },
-    {
-        name: 'Male Flag',
-        backgroundColor: 'blue',
-        position: 1,
-        parents: null,
-    },
-    {
-        position: 2,
-        name: 'Gay Pride Flag',
-        backgroundColor: 'red',
-        parents: {
-            'a': 'Male Flag',
-            'b': 'Male Flag',
-        },
-    },
-    {
-        position: 3,
-        name: 'test flag',
-        backgroundColor: 'green',
-        parents: {
-            'a': 'Gay Pride Flag',
-            'b': 'Male Flag',
-        },
-    },
-];
-
 
 /**
  * Creates and appends a draggable div flag to the gameboard.
@@ -190,7 +276,11 @@ function createAndAppendDraggable(flag, position) {
     let draggedAway = false;
     const draggableDiv = document.createElement('div');
     draggableDiv.classList.add('draggable');
-    draggableDiv.style.backgroundColor = flag.backgroundColor;
+    draggableDiv.style.backgroundImage = `url(src/img/flags/${flag.backgroundImage})`;
+    draggableDiv.style.backgroundSize = 'contain';
+    draggableDiv.style.backgroundRepeat = 'no-repeat';
+    draggableDiv.style.backgroundPosition = 'center';
+    draggableDiv.style.height = '60px';
     draggableDiv.style.left = '10px';
     draggableDiv.textContent = flag.name;
 
@@ -199,34 +289,21 @@ function createAndAppendDraggable(flag, position) {
         draggableDiv.style.top = position.y + 'px';
         draggedAway = true;
     } else {
-        draggableDiv.style.top = `${10 + flag.position * 100 + flag.position * 10}px`;
+        draggableDiv.style.top = `${10 + flag.position * 60 + flag.position * 10}px`;
     }
 
     flag.addAndDisplayDomElement(draggableDiv, draggedAway);
 }
 
-function createAndAppendDraggableWithPosition(flag, position) {
-    const draggableDiv = document.createElement('div');
-    draggableDiv.classList.add('draggable');
-    draggableDiv.style.backgroundColor = flag.backgroundColor;
-    draggableDiv.textContent = flag.name;
-
-    gameboard.appendChild(draggableDiv);
-    makeDraggableAndClone(draggableDiv, flag);
-}
-
-
-
-
 $(document).ready(function () {
 
     // load the flags array with the flag objects
     for (const [i, flag] of flagData.entries()) {
-        flags[i] = new Flag(flag.name, flag.backgroundColor, flag.parents, i);
+        flags[i] = new Flag(flag.name, flag.backgroundColor, flag.parents, flag.backgroundImage, i);
     }
 
     // add the first two flags to the discovered flags array and assign them a position
-    discoveredFlags = flags.filter(flag => flag.name === "Female Flag" || flag.name === "Male Flag");
+    discoveredFlags = flags.filter(flag => flag.name === "Asexual" || flag.name === "Transgender");
     discoveredFlags.forEach((flag, i) => {
         flag.discovered = true;
         flag.setPosition(i);

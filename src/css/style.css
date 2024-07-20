@@ -12,10 +12,8 @@ body {
 
 .draggable {
     width: 100px;
-    height: 100px;
     background-color: darkgray;
     position: absolute;
-
 }
 
 .draggable.is-pointer-down {
