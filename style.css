@@ -1,0 +1,17 @@
+/* Fonts import */ 
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Lobster&display=swap');
+
+body {
+    background-image: linear-gradient(to right top, #651173, #8a0049, #8e1f23, #7e4201, #635a00, #606800, #577700, #478613, #6a9305, #8ea000, #b3ab00, #d9b504);
+    font-family: 'Fira Mono' , sans-serif;
+}
+
+h1 {
+    font-family: 'Lobster', sans-serif;
+    font-size: large;
+}
+
+#gameboard {
+    background-image: none;
+    background-color: darkslategrey;
+}
