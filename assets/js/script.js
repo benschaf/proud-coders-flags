@@ -50,8 +50,9 @@ class DOMFlag {
     constructor(domElement, flagInstanceId, backgroundImage, draggedAway) {
         this.domElement = domElement;
         this.flagInstanceId = flagInstanceId;
-        this.id = currentFlagId;
+        this.backgroundImage = backgroundImage;
         this.draggedAway = draggedAway;
+        this.id = currentFlagId;
         currentFlagId++;
 
         this.addThisToDOMFlags();
@@ -205,4 +206,14 @@ $(document).ready(function () {
                 createAndAppendDraggable(flag, null)
             });
         });
+
+    $('#clear-flags').on('click', () => {
+        console.log('Clearing flags');
+        draggedAwayFlags = domFlags.filter(flag => flag.draggedAway === true);
+
+        draggedAwayFlags.forEach(flag => {
+            flag.domElement.remove();
+            domFlags = domFlags.filter(domFlag => domFlag.id !== flag.id);
+        });
+    });
 });

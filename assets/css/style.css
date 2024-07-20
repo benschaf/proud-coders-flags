@@ -82,13 +82,73 @@ fieldset {
     font-weight: bold;
 }
 
+dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    background: white;
+    border-radius: 1rem;
+    border-style: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    max-height: 90%;
+    padding: 1rem;
+    overflow-y: auto;
+  }
+
+  dialog::backdrop {
+    background-color: hsla(0, 0%, 0%, 0.636);
+  }
+
+.dialog-close-button {
+    margin-left: auto;
+    margin-right: 0;
+    width: fit-content;
+    color: #333;
+}
+
+.dialog-close-button:hover {
+    cursor: pointer;
+}
+
+dialog p {
+    margin-top: 20px;
+    color: #333; /* Adjust text color */
+    font-size: 16px; /* Adjust text size */
+}
+
 /* Game.html styles */
+#game-controls {
+    display: flex;
+    width: 95%;
+    max-width: 800px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin: 30px 0px 10px;
+}
+.game-button {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+    color: #000000;
+    font-weight: 500;
+    background-color: #ffffff99;
+}
+
+.game-button:hover {
+    background-color: #ffffff;
+    color: #000000;
+    cursor: pointer;
+}
+
 #gameboard {
     position: relative;
     height: 510px;
     width: 95%;
     max-width: 800px;
-    margin-top: 20px;
     background-color: #ffffff99;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
