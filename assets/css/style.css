@@ -85,7 +85,7 @@ fieldset {
 /* Game.html styles */
 #gameboard {
     position: relative;
-    height: 700px;
+    height: 510px;
     width: 95%;
     max-width: 800px;
     margin-top: 20px;

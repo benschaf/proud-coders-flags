@@ -164,11 +164,6 @@ function createAndAppendDraggable(flag, position) {
     draggableDiv.style.backgroundRepeat = 'no-repeat';
     draggableDiv.style.backgroundPosition = 'center';
     draggableDiv.style.height = '60px';
-    draggableDiv.style.backgroundImage = `url(assets/img/flags/${flag.backgroundImage})`;
-    draggableDiv.style.backgroundSize = 'contain';
-    draggableDiv.style.backgroundRepeat = 'no-repeat';
-    draggableDiv.style.backgroundPosition = 'center';
-    draggableDiv.style.height = '60px';
     draggableDiv.style.left = '10px';
     draggableDiv.textContent = flag.name;
 
@@ -178,7 +173,10 @@ function createAndAppendDraggable(flag, position) {
         draggedAway = true;
     } else {
         draggableDiv.style.top = `${10 + flag.position * 60 + flag.position * 10}px`;
-        draggableDiv.style.top = `${10 + flag.position * 60 + flag.position * 10}px`;
+        if (parseInt(draggableDiv.style.top) >= 500) {
+            draggableDiv.style.left = '120px';
+            draggableDiv.style.top = `${10 + (flag.position - 7) * 60 + (flag.position - 7) * 10}px`;
+        }
     }
 
     flag.addAndDisplayDomElement(draggableDiv, draggedAway);
@@ -196,7 +194,11 @@ $(document).ready(function () {
             }
 
             // add the first two flags to the discovered flags array and assign them a position
-            const discoveredFlags = flags.filter(flag => flag.name === "Asexual" || flag.name === "Transgender");
+            // const discoveredFlags = flags.filter(flag => flag.name === "Asexual" || flag.name === "Transgender");
+
+            //add all flags to discovered flags for testing
+            const discoveredFlags = flags;
+
             discoveredFlags.forEach((flag, i) => {
                 flag.discovered = true;
                 flag.setPosition(i);
