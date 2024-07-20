@@ -1,118 +1,5 @@
 const gameboard = document.getElementById('gameboard');
 
-const flagData = [
-    {
-        name: 'Asexual',
-        backgroundColor: 'pink',
-        backgroundImage: 'Asexual.png',
-        parents: null,
-    },
-    {
-        name: 'Transgender',
-        backgroundColor: 'blue',
-        backgroundImage: 'Transgender.png',
-        parents: null,
-    },
-    {
-        name: 'Aromantic',
-        backgroundColor: 'red',
-        backgroundImage: 'Aromantic.png',
-        parents: {
-            'a': 'Asexual',
-            'b': 'Transgender',
-        },
-    },
-    {
-        name: 'Bisexual',
-        backgroundColor: 'purple',
-        backgroundImage: 'Bisexual.png',
-        parents: {
-            'a': 'Aromantic',
-            'b': 'Transgender',
-        },
-    },
-    {
-        name: 'Demiboy',
-        backgroundColor: 'lightblue',
-        backgroundImage: 'Demiboy.png',
-        parents: {
-            'a': 'Asexual',
-            'b': 'Bisexual',
-        },
-    },
-    {
-        name: 'Gay Male',
-        backgroundColor: 'darkblue',
-        backgroundImage: 'GayMale.png',
-        parents: {
-            'a': 'Aromantic',
-            'b': 'Demiboy',
-        },
-    },
-    {
-        name: 'Genderqueer',
-        backgroundColor: 'green',
-        backgroundImage: 'Genderqueer.png',
-        parents: {
-            'a': 'Bisexual',
-            'b': 'Gay Male',
-        },
-    },
-    {
-        name: 'Intersex',
-        backgroundColor: 'yellow',
-        backgroundImage: 'Intersex.png',
-        parents: {
-            'a': 'Demiboy',
-            'b': 'Genderqueer',
-        },
-    },
-    {
-        name: 'Lesbian',
-        backgroundColor: 'orange',
-        backgroundImage: 'Lesbian.png',
-        parents: {
-            'a': 'Asexual',
-            'b': 'Intersex',
-        },
-    },
-    {
-        name: 'Nonbinary',
-        backgroundColor: 'gray',
-        backgroundImage: 'Nonbinary.png',
-        parents: {
-            'a': 'Gay Male',
-            'b': 'Lesbian',
-        },
-    },
-    {
-        name: 'Polyamory',
-        backgroundColor: 'black',
-        backgroundImage: 'Polyamory.png',
-        parents: {
-            'a': 'Genderqueer',
-            'b': 'Nonbinary',
-        },
-    },
-    {
-        name: 'Rainbow Flag',
-        backgroundColor: 'rainbow',
-        backgroundImage: 'RainbowFlag.png',
-        parents: {
-            'a': 'Intersex',
-            'b': 'Polyamory',
-        },
-    },
-    {
-        name: 'Rainbow Flag Lavender',
-        backgroundColor: 'lavender',
-        backgroundImage: 'RainbowFlagLavender.png',
-        parents: {
-            'a': 'Nonbinary',
-            'b': 'Rainbow Flag',
-        },
-    },
-];
 
 
 let currentFlagId = 0;
@@ -123,6 +10,7 @@ class Flag {
     name;
     backgroundColor; // This will be changed to image
     backgroundImage;
+    backgroundImage;
     parents;
     id;
     position = null;
@@ -131,6 +19,7 @@ class Flag {
         this.name = name;
         this.backgroundColor = backgroundColor;
         this.parents = parents;
+        this.backgroundImage = backgroundImage;
         this.backgroundImage = backgroundImage;
         this.id = id;
     }
@@ -152,6 +41,7 @@ class Flag {
 class DOMFlag {
     domElement;
     flagInstanceId;
+    backgroundImage;
     backgroundImage;
     draggie;
     id;
@@ -268,8 +158,8 @@ class DOMFlag {
 
 /**
  * Creates and appends a draggable div flag to the gameboard.
- * Creates and appends a draggable div flag to the gameboard.
  *
+ * @param {Object} flag - The flag object containing the properties of the draggable div.
  * @param {Object} flag - The flag object containing the properties of the draggable div.
  * @param {Object} flag - The flag object containing the properties of the draggable div.
  * @param {number} i - The index of the draggable div.
@@ -278,6 +168,11 @@ function createAndAppendDraggable(flag, position) {
     let draggedAway = false;
     const draggableDiv = document.createElement('div');
     draggableDiv.classList.add('draggable');
+    draggableDiv.style.backgroundImage = `url(assets/img/flags/${flag.backgroundImage})`;
+    draggableDiv.style.backgroundSize = 'contain';
+    draggableDiv.style.backgroundRepeat = 'no-repeat';
+    draggableDiv.style.backgroundPosition = 'center';
+    draggableDiv.style.height = '60px';
     draggableDiv.style.backgroundImage = `url(assets/img/flags/${flag.backgroundImage})`;
     draggableDiv.style.backgroundSize = 'contain';
     draggableDiv.style.backgroundRepeat = 'no-repeat';
@@ -292,23 +187,29 @@ function createAndAppendDraggable(flag, position) {
         draggedAway = true;
     } else {
         draggableDiv.style.top = `${10 + flag.position * 60 + flag.position * 10}px`;
+        draggableDiv.style.top = `${10 + flag.position * 60 + flag.position * 10}px`;
     }
 
     flag.addAndDisplayDomElement(draggableDiv, draggedAway);
 }
 
 $(document).ready(function () {
+    fetch('assets/data/flags.json')
+        .then(response => response.json())
+        .then(data => {
+            const flagData = data;
 
-    // load the flags array with the flag objects
-    for (const [i, flag] of flagData.entries()) {
-        flags[i] = new Flag(flag.name, flag.backgroundColor, flag.parents, flag.backgroundImage, i);
-    }
+            // load the flags array with the flag objects
+            for (const [i, flag] of flagData.entries()) {
+                flags[i] = new Flag(flag.name, flag.backgroundColor, flag.parents, flag.backgroundImage, i);
+            }
 
-    // add the first two flags to the discovered flags array and assign them a position
-    discoveredFlags = flags.filter(flag => flag.name === "Asexual" || flag.name === "Transgender");
-    discoveredFlags.forEach((flag, i) => {
-        flag.discovered = true;
-        flag.setPosition(i);
-    });
-    discoveredFlags.forEach(flag => createAndAppendDraggable(flag, null));
+            // add the first two flags to the discovered flags array and assign them a position
+            const discoveredFlags = flags.filter(flag => flag.name === "Asexual" || flag.name === "Transgender");
+            discoveredFlags.forEach((flag, i) => {
+                flag.discovered = true;
+                flag.setPosition(i);
+            });
+            discoveredFlags.forEach(flag => createAndAppendDraggable(flag, null));
+        });
 });

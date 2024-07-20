@@ -1,0 +1,113 @@
+[
+    {
+        "name": "Asexual",
+        "backgroundColor": "pink",
+        "backgroundImage": "Asexual.png",
+        "parents": null
+    },
+    {
+        "name": "Transgender",
+        "backgroundColor": "blue",
+        "backgroundImage": "Transgender.png",
+        "parents": null
+    },
+    {
+        "name": "Aromantic",
+        "backgroundColor": "red",
+        "backgroundImage": "Aromantic.png",
+        "parents": {
+            "a": "Asexual",
+            "b": "Transgender"
+        }
+    },
+    {
+        "name": "Bisexual",
+        "backgroundColor": "purple",
+        "backgroundImage": "Bisexual.png",
+        "parents": {
+            "a": "Aromantic",
+            "b": "Transgender"
+        }
+    },
+    {
+        "name": "Demiboy",
+        "backgroundColor": "lightblue",
+        "backgroundImage": "Demiboy.png",
+        "parents": {
+            "a": "Asexual",
+            "b": "Bisexual"
+        }
+    },
+    {
+        "name": "Gay Male",
+        "backgroundColor": "darkblue",
+        "backgroundImage": "GayMale.png",
+        "parents": {
+            "a": "Aromantic",
+            "b": "Demiboy"
+        }
+    },
+    {
+        "name": "Genderqueer",
+        "backgroundColor": "green",
+        "backgroundImage": "Genderqueer.png",
+        "parents": {
+            "a": "Bisexual",
+            "b": "Gay Male"
+        }
+    },
+    {
+        "name": "Intersex",
+        "backgroundColor": "yellow",
+        "backgroundImage": "Intersex.png",
+        "parents": {
+            "a": "Demiboy",
+            "b": "Genderqueer"
+        }
+    },
+    {
+        "name": "Lesbian",
+        "backgroundColor": "orange",
+        "backgroundImage": "Lesbian.png",
+        "parents": {
+            "a": "Asexual",
+            "b": "Intersex"
+        }
+    },
+    {
+        "name": "Nonbinary",
+        "backgroundColor": "gray",
+        "backgroundImage": "Nonbinary.png",
+        "parents": {
+            "a": "Gay Male",
+            "b": "Lesbian"
+        }
+    },
+    {
+        "name": "Polyamory",
+        "backgroundColor": "black",
+        "backgroundImage": "Polyamory.png",
+        "parents": {
+            "a": "Genderqueer",
+            "b": "Nonbinary"
+        }
+    },
+    {
+        "name": "Rainbow Flag",
+        "backgroundColor": "rainbow",
+        "backgroundImage": "RainbowFlag.png",
+        "parents": {
+            "a": "Intersex",
+            "b": "Polyamory"
+        }
+    },
+    {
+        "name": "Rainbow Flag Lavender",
+        "backgroundColor": "lavender",
+        "backgroundImage": "RainbowFlagLavender.png",
+        "parents": {
+            "a": "Nonbinary",
+            "b": "Rainbow Flag"
+        }
+    }
+]
