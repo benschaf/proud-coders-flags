@@ -278,7 +278,7 @@ function createAndAppendDraggable(flag, position) {
     let draggedAway = false;
     const draggableDiv = document.createElement('div');
     draggableDiv.classList.add('draggable');
-    draggableDiv.style.backgroundImage = `url(src/img/flags/${flag.backgroundImage})`;
+    draggableDiv.style.backgroundImage = `url(assets/img/flags/${flag.backgroundImage})`;
     draggableDiv.style.backgroundSize = 'contain';
     draggableDiv.style.backgroundRepeat = 'no-repeat';
     draggableDiv.style.backgroundPosition = 'center';
