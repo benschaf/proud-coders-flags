@@ -22,8 +22,10 @@
 
     <div id="game-controls">
         <div id="show-instructions" class="game-button">Show Instructions</div>
-        <div id="clear-flags" class="game-button">Clear Floating Flags</div>
+        <div id="show-hints" class="game-button">Hints</div>
+        <div id="clear-flags" class="game-button">Clear the Board</div>
         <a href="game.html" class="game-button">Reset Game</a>
+
         <!-- New Instructions Button -->
     </div>
 
@@ -31,6 +33,24 @@
 
     <!-- Game Container -->
     <div id="gameboard"></div>
+
+    <dialog id="hints-dialog">
+        <div id="close-hints" class="dialog-close-button"><i class="fas fa-times"></i></div>
+        <ul>
+            <li>Asexual + Transgender = Aromantic</li>
+            <li>Aromantic + Transgender = Bisexual</li>
+            <li>Asexual + Bisexual = Demiboy</li>
+            <li>Aromantic + Demiboy = Gay Male</li>
+            <li>Bisexual + Gay Male = Genderqueer</li>
+            <li>Demiboy + Genderqueer = Intersex</li>
+            <li>Asexual + Intersex = Lesbian</li>
+            <li>Gay Male + Lesbian = Nonbinary</li>
+            <li>Genderqueer + Nonbinary = Polyamory</li>
+            <li>Intersex + Polyamory = Rainbow Flag</li>
+            <li>Nonbinary + Rainbow Flag = Rainbow Flag Lavender</li>
+        </ul>
+    </dialog>
+
 
     <!-- Flag Dialog Box -->
     <dialog id="flag-info">
@@ -55,7 +75,8 @@
                 flag's meaning and history.</li>
             <li><strong>Clear the Board:</strong> Use the "Clear Floating Flags" button to remove all flags from the
                 gameboard and start fresh.</li>
-            <li><strong>Reset Game:</strong> Want to start over? Click the "Reset Game" link to reload the game. Careful, you will lose the flags that you have previously discovered.</li>
+            <li><strong>Reset Game:</strong> Want to start over? Click the "Reset Game" link to reload the game.
+                Careful, you will lose the flags that you have previously discovered.</li>
         </ol>
 
         <h3>Tips:</h3>
