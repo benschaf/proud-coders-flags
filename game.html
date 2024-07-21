@@ -4,10 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Proud Flags Merge. ">
-    <meta name="keywords"
-        content="">
+    <meta name="description" content="Proud Flags Merge. ">
+    <meta name="keywords" content="">
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
@@ -21,18 +19,36 @@
     <h1>Proud Flags Merge</h1>
     <strong>The game where you discover Pride flags and learn about them</strong>
 
-    <!-- Game Container -->
-    <div id="gameboard">
 
+    <div id="game-controls">
+        <div id="show-instructions" class="game-button">Show Instructions</div>
+        <div id="clear-flags" class="game-button">Clear Floating Flags</div>
+        <a href="game.html" class="game-button">Reset Game</a>
+        <!-- New Instructions Button -->
     </div>
 
-    <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <!-- Draggabilly -->
-    <script src="https://unpkg.com/draggabilly@3/dist/draggabilly.pkgd.min.js"></script>
-    <!-- Custom Script -->
-    <script src="assets/js/script.js"></script>
+
+
+    <!-- Game Container -->
+    <div id="gameboard"></div>
+
+    <!-- Flag Dialog Box -->
+    <dialog id="flag-info">
+        <div class="dialog-close-button"><i class="fas fa-times"></i></div>
+        <div id="flag-info-content">
+            <h2 id="flag-info-title">Flag Name</h2>
+            <img id="flag-info-image" src="assets/images/flags/flag-name.png" alt="Flag Name">
+            <p id="flag-info-description">Flag Description</p>
+        </div>
+    </dialog>
+
+    <!-- Insrtructions Dialog Box -->
+    <dialog id="instructions">
+        <div class="dialog-close-button"><i class="fas fa-times"></i></div>
+        <p>
+            Instructions go here
+        </p>
+    </dialog>
 
     <footer>
         <ul id="creator-github">
@@ -54,8 +70,17 @@
         </ul>
     </footer>
 
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- Draggabilly -->
+    <script src="https://unpkg.com/draggabilly@3/dist/draggabilly.pkgd.min.js"></script>
     <!-- Font Awesome Kit Code -->
     <script src="https://kit.fontawesome.com/2e8531be9c.js" crossorigin="anonymous"></script>
+    <!-- Dialog Script -->
+    <script src="assets/js/dialog.js" crossorigin="anonymous"></script>
+    <!-- Custom Script -->
+    <script src="assets/js/script.js"></script>
 
 </body>
 

@@ -41,7 +41,7 @@
     {
         "name": "Gay Male",
         "backgroundColor": "darkblue",
-        "backgroundImage": "GayMale.png",
+        "backgroundImage": "Gay-Male-Seven-Stripe.png",
         "parents": {
             "a": "Aromantic",
             "b": "Demiboy"
@@ -95,7 +95,7 @@
     {
         "name": "Rainbow Flag",
         "backgroundColor": "rainbow",
-        "backgroundImage": "RainbowFlag.png",
+        "backgroundImage": "Rainbow.png",
         "parents": {
             "a": "Intersex",
             "b": "Polyamory"
@@ -104,7 +104,7 @@
     {
         "name": "Rainbow Flag Lavender",
         "backgroundColor": "lavender",
-        "backgroundImage": "RainbowFlagLavender.png",
+        "backgroundImage": "Rainbow-2017.png",
         "parents": {
             "a": "Nonbinary",
             "b": "Rainbow Flag"
