@@ -51,7 +51,9 @@ class DOMFlag {
         this.domElement = domElement;
         this.flagInstanceId = flagInstanceId;
         this.backgroundImage = backgroundImage;
+        this.backgroundImage = backgroundImage;
         this.draggedAway = draggedAway;
+        this.id = currentFlagId;
         this.id = currentFlagId;
         currentFlagId++;
 
@@ -189,6 +191,10 @@ function createAndAppendDraggable(flag, position) {
             draggableDiv.style.left = '120px';
             draggableDiv.style.top = `${10 + (flag.position - 7) * 60 + (flag.position - 7) * 10}px`;
         }
+        if (parseInt(draggableDiv.style.top) >= 500) {
+            draggableDiv.style.left = '120px';
+            draggableDiv.style.top = `${10 + (flag.position - 7) * 60 + (flag.position - 7) * 10}px`;
+        }
     }
 
     flag.addAndDisplayDomElement(draggableDiv, draggedAway);
@@ -214,6 +220,19 @@ $(document).ready(function () {
             discoveredFlags.forEach((flag, i) => {
                 flag.discovered = true;
                 flag.setPosition(i);
+                createAndAppendDraggable(flag, null)
+            });
+        });
+
+    $('#clear-flags').on('click', () => {
+        console.log('Clearing flags');
+        draggedAwayFlags = domFlags.filter(flag => flag.draggedAway === true);
+
+        draggedAwayFlags.forEach(flag => {
+            flag.domElement.remove();
+            domFlags = domFlags.filter(domFlag => domFlag.id !== flag.id);
+        });
+    });
                 createAndAppendDraggable(flag, null)
             });
         });

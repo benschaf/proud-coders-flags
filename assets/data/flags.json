@@ -47,6 +47,7 @@
         "name": "Gay Male",
         "backgroundColor": "darkblue",
         "backgroundImage": "Gay-Male-Seven-Stripe.png",
+        "backgroundImage": "Gay-Male-Seven-Stripe.png",
         "parents": {
             "a": "Aromantic",
             "b": "Demiboy"
