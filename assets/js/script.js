@@ -233,17 +233,15 @@ $(document).ready(function () {
             domFlags = domFlags.filter(domFlag => domFlag.id !== flag.id);
         });
     });
-                createAndAppendDraggable(flag, null)
-            });
-        });
+    createAndAppendDraggable(flag, null)
+});
 
-    $('#clear-flags').on('click', () => {
-        console.log('Clearing flags');
-        draggedAwayFlags = domFlags.filter(flag => flag.draggedAway === true);
+$('#clear-flags').on('click', () => {
+    console.log('Clearing flags');
+    draggedAwayFlags = domFlags.filter(flag => flag.draggedAway === true);
 
-        draggedAwayFlags.forEach(flag => {
-            flag.domElement.remove();
-            domFlags = domFlags.filter(domFlag => domFlag.id !== flag.id);
-        });
+    draggedAwayFlags.forEach(flag => {
+        flag.domElement.remove();
+        domFlags = domFlags.filter(domFlag => domFlag.id !== flag.id);
     });
 });
