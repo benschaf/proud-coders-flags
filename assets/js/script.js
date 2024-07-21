@@ -50,8 +50,9 @@ class DOMFlag {
     constructor(domElement, flagInstanceId, backgroundImage, draggedAway) {
         this.domElement = domElement;
         this.flagInstanceId = flagInstanceId;
-        this.id = currentFlagId;
+        this.backgroundImage = backgroundImage;
         this.draggedAway = draggedAway;
+        this.id = currentFlagId;
         currentFlagId++;
 
         this.addThisToDOMFlags();
@@ -70,6 +71,17 @@ class DOMFlag {
             this.dragStartHandler(event, pointer, this);
         }).on('dragEnd', (event, pointer) => {
             this.dragEndHandler(event, pointer);
+        }).on('staticClick', (event, pointer) => {
+            const flagInstance = this.getFlagInstance();
+
+            document.getElementById('flag-info-title').textContent = flagInstance.name;
+            // document.getElementById('flag-info-description').textContent = flagInstance.description;
+            document.getElementById('flag-info-image').src = `assets/img/flags/${this.backgroundImage}`;
+            document.getElementById('flag-info-image').alt = flagInstance.name;
+
+            // Show the modal
+            const modal = document.getElementById('flag-info');
+            modal.showModal();
         });
 
         // set the position to absolute again because draggabilly changes it to relative
@@ -155,24 +167,10 @@ class DOMFlag {
     }
 }
 
-
-/**
- * Creates and appends a draggable div flag to the gameboard.
- *
- * @param {Object} flag - The flag object containing the properties of the draggable div.
- * @param {Object} flag - The flag object containing the properties of the draggable div.
- * @param {Object} flag - The flag object containing the properties of the draggable div.
- * @param {number} i - The index of the draggable div.
- */
 function createAndAppendDraggable(flag, position) {
     let draggedAway = false;
     const draggableDiv = document.createElement('div');
     draggableDiv.classList.add('draggable');
-    draggableDiv.style.backgroundImage = `url(assets/img/flags/${flag.backgroundImage})`;
-    draggableDiv.style.backgroundSize = 'contain';
-    draggableDiv.style.backgroundRepeat = 'no-repeat';
-    draggableDiv.style.backgroundPosition = 'center';
-    draggableDiv.style.height = '60px';
     draggableDiv.style.backgroundImage = `url(assets/img/flags/${flag.backgroundImage})`;
     draggableDiv.style.backgroundSize = 'contain';
     draggableDiv.style.backgroundRepeat = 'no-repeat';
@@ -187,7 +185,10 @@ function createAndAppendDraggable(flag, position) {
         draggedAway = true;
     } else {
         draggableDiv.style.top = `${10 + flag.position * 60 + flag.position * 10}px`;
-        draggableDiv.style.top = `${10 + flag.position * 60 + flag.position * 10}px`;
+        if (parseInt(draggableDiv.style.top) >= 500) {
+            draggableDiv.style.left = '120px';
+            draggableDiv.style.top = `${10 + (flag.position - 7) * 60 + (flag.position - 7) * 10}px`;
+        }
     }
 
     flag.addAndDisplayDomElement(draggableDiv, draggedAway);
@@ -205,11 +206,25 @@ $(document).ready(function () {
             }
 
             // add the first two flags to the discovered flags array and assign them a position
-            const discoveredFlags = flags.filter(flag => flag.name === "Asexual" || flag.name === "Transgender");
+            // const discoveredFlags = flags.filter(flag => flag.name === "Asexual" || flag.name === "Transgender");
+
+            //add all flags to discovered flags for testing
+            const discoveredFlags = flags;
+
             discoveredFlags.forEach((flag, i) => {
                 flag.discovered = true;
                 flag.setPosition(i);
+                createAndAppendDraggable(flag, null)
             });
-            discoveredFlags.forEach(flag => createAndAppendDraggable(flag, null));
         });
+
+    $('#clear-flags').on('click', () => {
+        console.log('Clearing flags');
+        draggedAwayFlags = domFlags.filter(flag => flag.draggedAway === true);
+
+        draggedAwayFlags.forEach(flag => {
+            flag.domElement.remove();
+            domFlags = domFlags.filter(domFlag => domFlag.id !== flag.id);
+        });
+    });
 });
