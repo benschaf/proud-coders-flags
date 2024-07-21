@@ -137,6 +137,14 @@ dialog strong {
     color: #651173;
 }
 
+.muted {
+    color: #333;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
+}
+
 /* Game.html styles */
 #game-controls {
     display: flex;
