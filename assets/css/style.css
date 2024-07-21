@@ -138,6 +138,34 @@ dialog p {
     font-size: 16px; /* Adjust text size */
 }
 
+
+dialog h2, dialog h3 {
+    color: #651173;
+    margin-top: 20px;
+}
+
+dialog p, dialog li {
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+dialog ol, dialog ul {
+    padding-left: 20px;
+}
+
+dialog strong {
+    color: #651173;
+}
+
+.muted {
+    color: #333;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
+}
+
+/* Game.html styles */
 #game-controls {
     display: flex;
     width: 95%;
@@ -211,8 +239,7 @@ dialog p {
 }
 
 #flag-info-title, #flag-info-description {
-    text-align: center;
-    margin: 20px;
+    margin: 20px 0;
 }
 
 /* Footer */
