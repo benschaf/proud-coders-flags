@@ -58,7 +58,25 @@ fieldset {
     padding: 10px 5px;
     margin: 5px 5px;
     border: 2px solid #651173;
-    border-radius: 2px;
+    border-radius: 4px;
+}
+
+#form-avatar-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#form-avatar-container img {
+    max-width: 140px;
+    max-height: 140px;
+}
+
+#form-avatar-information {
+    width: 50%;
+    margin: 0 25%;
+    font-size: 12px;
+    text-align: center;
 }
 
 #start-form-button {
@@ -82,6 +100,7 @@ fieldset {
     font-weight: bold;
 }
 
+/* Game.html styles */
 dialog {
     position: fixed;
     top: 50%;
@@ -118,6 +137,7 @@ dialog p {
     color: #333; /* Adjust text color */
     font-size: 16px; /* Adjust text size */
 }
+
 
 dialog h2, dialog h3 {
     color: #651173;
@@ -226,6 +246,7 @@ dialog strong {
 /* Makes footer stick to bottom */
 footer {
     margin-top: auto;
+    width: 100%;
 }
 
 #creator-github {
@@ -246,6 +267,12 @@ footer {
         width: 70vw;
     }
 
+    #form-avatar-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
     #gameboard {
         width: 80%;
     }
@@ -256,5 +283,22 @@ footer {
     #start-form {
         width: 50vw;
     }
+
+}
+
+/* Media query: desktops (1200px and up) */
+@media screen and (min-width: 1200px) {
+
+    #start-form {
+        width: 70vw;
+    }
+
+    #form-avatar-container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
 }
 
