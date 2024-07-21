@@ -3,18 +3,21 @@
         "name": "Asexual",
         "backgroundColor": "pink",
         "backgroundImage": "Asexual.png",
+        "description": "The Asexual Pride Flag was created in 2010 following a contest by the Asexual Visibility and Education Network. Asexual individuals are people that do not have a sexual attraction to any gender. Each stripe has a different meaning: black represents asexuality, gray means gray-asexuality & demisexuality, whites stands for non-asexual partners and allies, and the purple represents community.",
         "parents": null
     },
     {
         "name": "Transgender",
         "backgroundColor": "blue",
         "backgroundImage": "Transgender.png",
+        "description": "The Transgender Pride Flag debuted at Phoenix Pride in 2000 and was created by US Navy Veteran Monica Helms. She created the flag as a symbol of both the diversity of the trans community and the rights that trans folks are fighting for today. The blue stripes represent the ‘traditional boy’ colors while the pink stripes represent the ‘traditional girl’ colors. The white stripes represents those who are intersex, transitioning, or have an undefined gender.",
         "parents": null
     },
     {
         "name": "Aromantic",
         "backgroundColor": "red",
         "backgroundImage": "Aromantic.png",
+        "description": "The Aromantic Flag in its current form was introduced in 2014 by a Tumblr user named Cameron, and although other Aromantic flags have been proposed and used in the Aromantic community, it is this current flag that is used by the largest Aromantic group – AUREA (romantic Spectrum Union for Recognition, Education and Advocacy). The green colours are chosen to represent aromanticism as green is the inverted colour of red – the colour traditionally associated with romance.",
         "parents": {
             "a": "Asexual",
             "b": "Transgender"
@@ -24,6 +27,7 @@
         "name": "Bisexual",
         "backgroundColor": "purple",
         "backgroundImage": "Bisexual.png",
+        "description": "The Bisexual Flag was created in 1998 by Michael Page to bring awareness o the bisexual community. The pink represents bisexual’s attraction to the same gender while the blue represents the attraction to the opposite gender. The purple stripe in the middle represents attraction to two genders.",
         "parents": {
             "a": "Aromantic",
             "b": "Transgender"
@@ -33,6 +37,7 @@
         "name": "Demiboy",
         "backgroundColor": "lightblue",
         "backgroundImage": "Demiboy.png",
+        "description": "The demiboy flag was created around 2015 by the Tumblr user Transrants, based on the earlier existing deminonbinary flag. It follows the same design concept as the demifluid, demigirl and deminonbinary flags.",
         "parents": {
             "a": "Asexual",
             "b": "Bisexual"
@@ -51,6 +56,7 @@
         "name": "Genderqueer",
         "backgroundColor": "green",
         "backgroundImage": "Genderqueer.png",
+        "description": "The Genderqueer Pride Flag was created by Marilyn Roxie in 2011 to represent those people that reject the static categories of gender. Genderqueer people may see themselves as both or neither male and female or beyond the binary. The lavender stripe represents androgyny and other queer identities while the white stripe stands for agender people. The green stripe symbolizes those who fall outside of the binary.",
         "parents": {
             "a": "Bisexual",
             "b": "Gay Male"
@@ -60,6 +66,7 @@
         "name": "Intersex",
         "backgroundColor": "yellow",
         "backgroundImage": "Intersex.png",
+        "description": "The Intersex Pride Flag was developed in 2013 by the co-chair of Intersex Human Rights Australia, Morgan Carpenter. Intersex people are those born with a variety of differences in their sex traits and reproductive anatomy. There is no one way to be intersex as everyone’s experience in unique. The creator chose yellow and purple as those are seen as gender neutral colors.",
         "parents": {
             "a": "Demiboy",
             "b": "Genderqueer"
@@ -69,6 +76,7 @@
         "name": "Lesbian",
         "backgroundColor": "orange",
         "backgroundImage": "Lesbian.png",
+        "description": "While there have been many iterations of the Lesbian Pride Flag, this has been in use since 2018. Since then, it has been widely accepted. The different shades of red, pink, and orange represent the different types of femininity in the lesbian community.",
         "parents": {
             "a": "Asexual",
             "b": "Intersex"
@@ -78,6 +86,7 @@
         "name": "Nonbinary",
         "backgroundColor": "gray",
         "backgroundImage": "Nonbinary.png",
+        "description": "The Nonbinary Pride Flag was created in 2014 to represent those individuals who do not identify with either binary gender or within the binary at all. The yellow stripe represents a gender outside of the binary. The white stripe stands for those who have multiple or all genders. The purple stripe symbolizes those who fall between the male/female binary. The black stripe represents those with no gender.",
         "parents": {
             "a": "Gay Male",
             "b": "Lesbian"
@@ -87,6 +96,7 @@
         "name": "Polyamory",
         "backgroundColor": "black",
         "backgroundImage": "Polyamory.png",
+        "description": "The Polyamory Pride Flag was created by Jim Evans in 1995 for all polyamorous people. Each color represents a different aspect of polyamory. Blue stands for openness and honesty of everyone involved, red represents love and passion, while black stands for solidarity with those who must hide their polyamorous relationships. The Pi sign in the middle signifies the infinite options of partners available to polyamorous people.",
         "parents": {
             "a": "Genderqueer",
             "b": "Nonbinary"
@@ -96,6 +106,7 @@
         "name": "Rainbow Flag",
         "backgroundColor": "rainbow",
         "backgroundImage": "Rainbow.png",
+        "description": "After the assassination of Harvey Milk, the rainbow flag was in high demand. Due to manufacturing issues, the hot pink stripe was removed. The turquoise stripe was removed from the flag as a design choice from Baker. The six color pride flag has represented the community for over 40 years and is still one of the most common LGBTQ+ flags.",
         "parents": {
             "a": "Intersex",
             "b": "Polyamory"
@@ -105,6 +116,7 @@
         "name": "Rainbow Flag Lavender",
         "backgroundColor": "lavender",
         "backgroundImage": "Rainbow-2017.png",
+        "description": "The original Pride Flag was created in 1978 after activist Harvey Milk asked artist Gilbert Baker to design a symbol of gay pride. Each color represents a different part of the LGBTQ+ community: hot pink represents sex, red symbolizes life, orange stands for healing, yellow equals sunlight, green stands for nature, turquoise symbolizes magic and art, indigo represents serenity, while violet symbolizes the spirit of LGBTQ+ people.",
         "parents": {
             "a": "Nonbinary",
             "b": "Rainbow Flag"

@@ -8,19 +8,19 @@ let domFlags = [];
 
 class Flag {
     name;
-    backgroundColor; // This will be changed to image
+    backgroundColor; // Maybe needed for when the flag is loading?
     backgroundImage;
-    backgroundImage;
+    description;
     parents;
     id;
     position = null;
     discovered = false;
-    constructor(name, backgroundColor, parents, backgroundImage, id) {
+    constructor(name, backgroundColor, parents, backgroundImage, description, id) {
         this.name = name;
         this.backgroundColor = backgroundColor;
         this.parents = parents;
         this.backgroundImage = backgroundImage;
-        this.backgroundImage = backgroundImage;
+        this.description = description;
         this.id = id;
     }
 
@@ -75,7 +75,7 @@ class DOMFlag {
             const flagInstance = this.getFlagInstance();
 
             document.getElementById('flag-info-title').textContent = flagInstance.name;
-            // document.getElementById('flag-info-description').textContent = flagInstance.description;
+            document.getElementById('flag-info-description').textContent = flagInstance.description;
             document.getElementById('flag-info-image').src = `assets/img/flags/${this.backgroundImage}`;
             document.getElementById('flag-info-image').alt = flagInstance.name;
 
@@ -202,13 +202,13 @@ $(document).ready(function () {
 
             // load the flags array with the flag objects
             for (const [i, flag] of flagData.entries()) {
-                flags[i] = new Flag(flag.name, flag.backgroundColor, flag.parents, flag.backgroundImage, i);
+                flags[i] = new Flag(flag.name, flag.backgroundColor, flag.parents, flag.backgroundImage, flag.description, i);
             }
 
             // add the first two flags to the discovered flags array and assign them a position
             // const discoveredFlags = flags.filter(flag => flag.name === "Asexual" || flag.name === "Transgender");
 
-            //add all flags to discovered flags for testing
+            // TESTING: ::::: add all flags to discovered flags for testing
             const discoveredFlags = flags;
 
             discoveredFlags.forEach((flag, i) => {
