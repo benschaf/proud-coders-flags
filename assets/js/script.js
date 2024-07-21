@@ -1,26 +1,24 @@
 const gameboard = document.getElementById('gameboard');
 
-
-
 let currentFlagId = 0;
 let flags = [];
 let domFlags = [];
 
 class Flag {
     name;
-    backgroundColor; // This will be changed to image
+    backgroundColor; // Maybe needed for when the flag is loading?
     backgroundImage;
-    backgroundImage;
+    description;
     parents;
     id;
     position = null;
     discovered = false;
-    constructor(name, backgroundColor, parents, backgroundImage, id) {
+    constructor(name, backgroundColor, parents, backgroundImage, description, id) {
         this.name = name;
         this.backgroundColor = backgroundColor;
         this.parents = parents;
         this.backgroundImage = backgroundImage;
-        this.backgroundImage = backgroundImage;
+        this.description = description;
         this.id = id;
     }
 
@@ -51,7 +49,9 @@ class DOMFlag {
         this.domElement = domElement;
         this.flagInstanceId = flagInstanceId;
         this.backgroundImage = backgroundImage;
+        this.backgroundImage = backgroundImage;
         this.draggedAway = draggedAway;
+        this.id = currentFlagId;
         this.id = currentFlagId;
         currentFlagId++;
 
@@ -75,7 +75,7 @@ class DOMFlag {
             const flagInstance = this.getFlagInstance();
 
             document.getElementById('flag-info-title').textContent = flagInstance.name;
-            // document.getElementById('flag-info-description').textContent = flagInstance.description;
+            document.getElementById('flag-info-description').textContent = flagInstance.description;
             document.getElementById('flag-info-image').src = `assets/img/flags/${this.backgroundImage}`;
             document.getElementById('flag-info-image').alt = flagInstance.name;
 
@@ -140,6 +140,14 @@ class DOMFlag {
                             flagToActivate.setPosition(discoveredFlagsCount);
 
                             createAndAppendDraggable(flagToActivate);
+
+                            document.getElementById('flag-info-title').textContent = `You discovered: ${flagToActivate.name}`;
+                            document.getElementById('flag-info-description').textContent = flagToActivate.description;
+                            document.getElementById('flag-info-image').src = `assets/img/flags/${flagToActivate.backgroundImage}`;
+                            document.getElementById('flag-info-image').alt = flagToActivate.name;
+
+                            const modal = document.getElementById('flag-info');
+                            modal.showModal();
                         }
 
                         createAndAppendDraggable(flagToActivate, stillDomFlagPosition);
@@ -189,6 +197,10 @@ function createAndAppendDraggable(flag, position) {
             draggableDiv.style.left = '120px';
             draggableDiv.style.top = `${10 + (flag.position - 7) * 60 + (flag.position - 7) * 10}px`;
         }
+        if (parseInt(draggableDiv.style.top) >= 500) {
+            draggableDiv.style.left = '120px';
+            draggableDiv.style.top = `${10 + (flag.position - 7) * 60 + (flag.position - 7) * 10}px`;
+        }
     }
 
     flag.addAndDisplayDomElement(draggableDiv, draggedAway);
@@ -202,14 +214,14 @@ $(document).ready(function () {
 
             // load the flags array with the flag objects
             for (const [i, flag] of flagData.entries()) {
-                flags[i] = new Flag(flag.name, flag.backgroundColor, flag.parents, flag.backgroundImage, i);
+                flags[i] = new Flag(flag.name, flag.backgroundColor, flag.parents, flag.backgroundImage, flag.description, i);
             }
 
             // add the first two flags to the discovered flags array and assign them a position
-            // const discoveredFlags = flags.filter(flag => flag.name === "Asexual" || flag.name === "Transgender");
+            const discoveredFlags = flags.filter(flag => flag.name === "Asexual" || flag.name === "Transgender");
 
-            //add all flags to discovered flags for testing
-            const discoveredFlags = flags;
+            // TESTING: ::::: add all flags to discovered flags for testing
+            //const discoveredFlags = flags;
 
             discoveredFlags.forEach((flag, i) => {
                 flag.discovered = true;
@@ -226,5 +238,16 @@ $(document).ready(function () {
             flag.domElement.remove();
             domFlags = domFlags.filter(domFlag => domFlag.id !== flag.id);
         });
+    });
+    createAndAppendDraggable(flag, null)
+});
+
+$('#clear-flags').on('click', () => {
+    console.log('Clearing flags');
+    draggedAwayFlags = domFlags.filter(flag => flag.draggedAway === true);
+
+    draggedAwayFlags.forEach(flag => {
+        flag.domElement.remove();
+        domFlags = domFlags.filter(domFlag => domFlag.id !== flag.id);
     });
 });
