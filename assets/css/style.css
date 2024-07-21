@@ -119,6 +119,24 @@ dialog p {
     font-size: 16px; /* Adjust text size */
 }
 
+#instructions h2, #instructions h3 {
+    color: #651173;
+    margin-top: 20px;
+}
+
+#instructions p, #instructions li {
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+#instructions ol, #instructions ul {
+    padding-left: 20px;
+}
+
+#instructions strong {
+    color: #651173;
+}
+
 /* Game.html styles */
 #game-controls {
     display: flex;
