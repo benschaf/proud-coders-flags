@@ -119,21 +119,21 @@ dialog p {
     font-size: 16px; /* Adjust text size */
 }
 
-#instructions h2, #instructions h3 {
+dialog h2, dialog h3 {
     color: #651173;
     margin-top: 20px;
 }
 
-#instructions p, #instructions li {
+dialog p, dialog li {
     line-height: 1.6;
     margin-top: 10px;
 }
 
-#instructions ol, #instructions ul {
+dialog ol, dialog ul {
     padding-left: 20px;
 }
 
-#instructions strong {
+dialog strong {
     color: #651173;
 }
 
@@ -211,7 +211,7 @@ dialog p {
 }
 
 #flag-info-title, #flag-info-description {
-    margin: 20px;
+    margin: 20px 0;
 }
 
 /* Footer */
