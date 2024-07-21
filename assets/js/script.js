@@ -1,7 +1,5 @@
 const gameboard = document.getElementById('gameboard');
 
-
-
 let currentFlagId = 0;
 let flags = [];
 let domFlags = [];
@@ -142,6 +140,14 @@ class DOMFlag {
                             flagToActivate.setPosition(discoveredFlagsCount);
 
                             createAndAppendDraggable(flagToActivate);
+
+                            document.getElementById('flag-info-title').textContent = `You discovered: ${flagToActivate.name}`;
+                            document.getElementById('flag-info-description').textContent = flagToActivate.description;
+                            document.getElementById('flag-info-image').src = `assets/img/flags/${flagToActivate.backgroundImage}`;
+                            document.getElementById('flag-info-image').alt = flagToActivate.name;
+
+                            const modal = document.getElementById('flag-info');
+                            modal.showModal();
                         }
 
                         createAndAppendDraggable(flagToActivate, stillDomFlagPosition);
@@ -212,10 +218,10 @@ $(document).ready(function () {
             }
 
             // add the first two flags to the discovered flags array and assign them a position
-            // const discoveredFlags = flags.filter(flag => flag.name === "Asexual" || flag.name === "Transgender");
+            const discoveredFlags = flags.filter(flag => flag.name === "Asexual" || flag.name === "Transgender");
 
             // TESTING: ::::: add all flags to discovered flags for testing
-            const discoveredFlags = flags;
+            //const discoveredFlags = flags;
 
             discoveredFlags.forEach((flag, i) => {
                 flag.discovered = true;
