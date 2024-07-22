@@ -51,7 +51,7 @@ main {
     border: 1px solid #0339a6;
     border-radius: 8px;
     box-shadow: 2px 2px 8px 2px #0339a6;
-    margin: 10px auto;
+    margin: 10px auto 30px;
 }
 
 fieldset {
@@ -282,6 +282,7 @@ dialog strong {
 footer {
     margin-top: auto;
     width: 100%;
+    margin-bottom: 5px;
 }
 
 #creator-github {
