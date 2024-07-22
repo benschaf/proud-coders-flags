@@ -47,6 +47,8 @@ The goal of "Proud Flags Merge" is to create a platform that promotes awareness 
 
 ## Credits
 
+- The color palette is sourced from [Adobe Color](https://color.adobe.com/search?q=pride-logo)
+- The background color gradient was created based on the color palette with [ColorSpace](https://mycolor.space/gradient3?ori=to+right+top&hex=%23651173&hex2=%2302731E&hex3=%23D9B504&submit=submit)
 - The avatar images used in the project were created with [Free Avatar Maker](https://avatarmaker.com/)
 - The information and inspiration for the avatar used in the project are sourced from [Historical Figures of LGBTQ+ History](https://www.unco.edu/gender-sexuality-resource-center/resources/historical-figures.aspx)
 - The flag images used in the project are sourced from [library.LGBT](https://flag.library.lgbt/)
