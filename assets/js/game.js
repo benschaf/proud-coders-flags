@@ -143,6 +143,7 @@ class DOMFlag {
 
                             document.getElementById('flag-info-title').textContent = `You discovered: ${flagToActivate.name}`;
                             document.getElementById('flag-info-description').textContent = flagToActivate.description;
+                            document.getElementById('flag-info-image').src = ""; // Maybe replace with loading image
                             document.getElementById('flag-info-image').src = `assets/img/flags/${flagToActivate.backgroundImage}`;
                             document.getElementById('flag-info-image').alt = flagToActivate.name;
 
@@ -221,7 +222,7 @@ $(document).ready(function () {
             const discoveredFlags = flags.filter(flag => flag.name === "Asexual" || flag.name === "Transgender");
 
             // TESTING: ::::: add all flags to discovered flags for testing
-            //const discoveredFlags = flags;
+            // const discoveredFlags = flags;
 
             discoveredFlags.forEach((flag, i) => {
                 flag.discovered = true;
