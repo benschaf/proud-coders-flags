@@ -47,7 +47,7 @@
         "name": "Gay Male",
         "backgroundColor": "darkblue",
         "backgroundImage": "Gay-Male-Seven-Stripe.png",
-        "backgroundImage": "Gay-Male-Seven-Stripe.png",
+        "description": "The flag was created by ask-pride-color-schemes Tumblr blog in 2017, and is essentially an adaptation of the lesbian flag, but with the colours adjusted to from pinkish and orangey hues to teal and blueish hues. As such, the meanings behind the coloured stripes can be viewed as being the same.",
         "parents": {
             "a": "Aromantic",
             "b": "Demiboy"
