@@ -6,7 +6,11 @@ $(document).ready(function () {
 
     // Set the avatar image
     const avatarDisplay = $('#avatar-display')[0];
-    avatarDisplay.innerHTML = `<img src="assets/img/avatar/${avatar}.webp" alt="${avatar} Avatar">`;
+    if (avatar === null) {
+        avatarDisplay.innerHTML = `<img src="assets/img/avatar/alan-turing.webp" alt="Alan Turing Avatar">`;
+    } else {
+        avatarDisplay.innerHTML = `<img src="assets/img/avatar/${avatar}.webp" alt="${avatar} Avatar">`;
+    }
 
     const avatarName = $('#avatar-name')[0];
     switch (avatar) {
@@ -21,6 +25,9 @@ $(document).ready(function () {
             break;
         case 'martha-p-johnson':
             avatarName.textContent = 'Martha P. Johnson';
+            break;
+        default:
+            avatarName.textContent = 'Alan Turing';
             break;
     }
 });
