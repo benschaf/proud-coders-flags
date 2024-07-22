@@ -176,10 +176,9 @@ dialog strong {
 /* Game.html styles */
 #game-controls {
     display: flex;
+    flex-wrap: wrap;
     width: 95%;
     max-width: 800px;
-    justify-content: flex-end;
-    align-items: center;
     gap: 10px;
     margin: 30px 0px 10px;
 }
@@ -189,6 +188,8 @@ dialog strong {
     padding: 10px;
     color: #000000;
     font-weight: 500;
+    flex-grow: 1;
+    text-align: center;
     background-color: #ffffff99;
 }
 
@@ -281,7 +282,7 @@ footer {
         justify-content: space-between;
     }
 
-    #gameboard {
+    #gameboard, #game-controls {
         width: 80%;
     }
 }
