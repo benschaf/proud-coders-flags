@@ -113,6 +113,7 @@ fieldset {
 
 #subtitle {
     text-transform: uppercase;
+    text-align: center;
 }
 
 #avatar-display {
@@ -130,18 +131,15 @@ dialog {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
-    /*background: white;
-    border-radius: 1rem;
-    border-style: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
     background-color: rgba(3, 57, 166, 0.9);
-    border: 1px solid #0339a6;
     border-radius: 8px;
+    border: none;
     box-shadow: 2px 2px 8px 2px #0339a6;
     width: 90%;
     max-height: 90%;
     padding: 1rem;
     overflow-y: auto;
+    color: #ffffff;
   }
 
 dialog::backdrop {
@@ -161,13 +159,13 @@ dialog::backdrop {
 
 dialog p {
     margin-top: 20px;
-    color: #ffffff; /* Adjust text color */
+    color: rgba(217, 181, 4, 0.9); /* Adjust text color */
     font-size: 14px; /* Adjust text size */
 }
 
 
 dialog h2, dialog h3 {
-    color: #651173;
+    color: #D9B504;
     margin-top: 20px;
 }
 
@@ -176,12 +174,16 @@ dialog p, dialog li {
     margin-top: 10px;
 }
 
-dialog ol, dialog ul {
+dialog ol {
+    padding-left: 30px;
+}
+
+dialog ul {
     padding-left: 20px;
 }
 
 dialog strong {
-    color: #651173;
+    color: #D9B504;
 }
 
 .muted {
@@ -202,14 +204,11 @@ dialog strong {
     margin: 30px 0px 10px;
 }
 .game-button {
-    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;*/
     padding: 10px;
     color: #ffffff;
     font-weight: 500;
     flex-grow: 1;
     text-align: center;
-    /*background-color: #ffffff99;*/
     background-color: rgba(3, 57, 166, 0.9);
     border: 1px solid #0339a6;
     border-radius: 8px;
@@ -227,9 +226,6 @@ dialog strong {
     height: 510px;
     width: 95%;
     max-width: 800px;
-    /* background-color: #ffffff99;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px; */
     padding: 10px;
     background-color: rgba(3, 57, 166, 0.7);
     border: 1px solid #0339a6;
@@ -269,12 +265,12 @@ dialog strong {
 }
 
 #flag-info-image {
-    max-width: 100%;
+    max-width: 80%;
     height: auto;
     display: block;
     margin: 0 auto;
-    border: 1px solid #0339a6;
     border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 #flag-info-title, #flag-info-description {
