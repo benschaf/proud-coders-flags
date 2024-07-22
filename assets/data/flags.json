@@ -56,7 +56,7 @@
     {
         "name": "Genderqueer",
         "backgroundColor": "green",
-        "backgroundImage": "Genderqueer.webp",
+        "backgroundImage": "genderqueer.webp",
         "description": "The Genderqueer Pride Flag was created by Marilyn Roxie in 2011 to represent those people that reject the static categories of gender. Genderqueer people may see themselves as both or neither male and female or beyond the binary. The lavender stripe represents androgyny and other queer identities while the white stripe stands for agender people. The green stripe symbolizes those who fall outside of the binary.",
         "parents": {
             "a": "Bisexual",
