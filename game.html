@@ -19,109 +19,121 @@
     <h1>Proud Flags Merge</h1>
     <strong>The game where you discover Pride flags and learn about them</strong>
 
-
-    <div id="game-controls">
-        <div id="show-instructions" class="game-button"><i class="fa fa-info-circle"></i> Show Instructions</div>
-        <div id="show-hints" class="game-button"><i class="fa fa-lightbulb-o"></i> Hints</div>
-        <div id="clear-flags" class="game-button"><i class="fa fa-eraser"></i> Clear the Board</div>
-        <a href="game.html" class="game-button"><i class="fa fa-refresh"></i> Reset Game</a>
-    </div>
-
-
-
-    <!-- Game Container -->
-    <div id="gameboard"></div>
-
-    <dialog id="hints-dialog">
-        <div id="close-hints" class="dialog-close-button"><i class="fas fa-times"></i></div>
-        <ul>
-            <li>Asexual + Transgender = Aromantic</li>
-            <li>Aromantic + Transgender = Bisexual</li>
-            <li>Asexual + Bisexual = Demiboy</li>
-            <li>Aromantic + Demiboy = Gay Male</li>
-            <li>Bisexual + Gay Male = Genderqueer</li>
-            <li>Demiboy + Genderqueer = Intersex</li>
-            <li>Asexual + Intersex = Lesbian</li>
-            <li>Gay Male + Lesbian = Nonbinary</li>
-            <li>Genderqueer + Nonbinary = Polyamory</li>
-            <li>Intersex + Polyamory = Rainbow Flag</li>
-            <li>Nonbinary + Rainbow Flag = Rainbow Flag Lavender</li>
-        </ul>
-        <div class="margin-top-20">
-            <span class="muted">None of the flag combinations are intended to show any real-life relationships or
-                connections between the flags. The combinations are random only for the purpose of the game.</span>
+    <!-- Avatar Display -->
+    <div>
+        <div id="avatar-display">
         </div>
-    </dialog>
-
-
-    <!-- Flag Dialog Box -->
-    <dialog id="flag-info">
-        <div class="dialog-close-button"><i class="fas fa-times"></i></div>
-        <div id="flag-info-content">
-            <h2 id="flag-info-title">Flag Name</h2>
-            <img id="flag-info-image" src="assets/images/flags/flag-name.png" alt="Flag Name">
-            <p id="flag-info-description">Flag Description</p>
+        <div>
+            Your Avatar: <strong id="avatar-name">Alan Turing</strong>
         </div>
-    </dialog>
 
-    <!-- Insrtructions Dialog Box -->
-    <dialog id="instructions">
-        <div id="close-instructions" class="dialog-close-button"><i class="fas fa-times"></i></div>
-        <h2>Welcome to Proud Flags Merge!</h2>
-        <p>Discover Pride flags and learn about their meanings in this interactive game.</p>
 
-        <h3>How to Play:</h3>
-        <ol>
-            <li><strong>Merge Flags:</strong> Drag and drop flags over each other to merge them into new flags.</li>
-            <li><strong>Learn:</strong> Click on any flag on the board to open a dialog box with information about the
-                flag's meaning and history.</li>
-            <li><strong>Clear the Board:</strong> Use the "Clear Floating Flags" button to remove all flags from the
-                gameboard and start fresh.</li>
-            <li><strong>Reset Game:</strong> Want to start over? Click the "Reset Game" link to reload the game.
-                Careful, you will lose the flags that you have previously discovered.</li>
-        </ol>
+        <!-- Game Controls -->
+        <div id="game-controls">
+            <div id="show-instructions" class="game-button"><i class="fa fa-info-circle"></i> Show Instructions</div>
+            <div id="show-hints" class="game-button"><i class="fa fa-lightbulb-o"></i> Hints</div>
+            <div id="clear-flags" class="game-button"><i class="fa fa-eraser"></i> Clear the Board</div>
+            <a href="game.html" class="game-button"><i class="fa fa-refresh"></i> Reset Game</a>
+        </div>
 
-        <h3>Tips:</h3>
-        <ul>
-            <li>Flags can only be discovered by merging specific flags together. Experiment with different
-                combinations!</li>
-            <li>Take your time and enjoy learning at your own pace.</li>
-        </ul>
 
-        <p>Thank you for playing Proud Flags Merge. Have fun discovering and learning!</p>
-    </dialog>
 
-    <footer>
-        <ul id="creator-github">
-            <li>
-                <i class="fa-regular fa-copyright"></i>
-            </li>
-            <li>
-                <a href="https://github.com/benschaf" target="_blank" rel="noopener"
-                    aria-label="Visit benschaf on GitHub (opens page in new tab)">
-                    <i class="fa-brands fa-github"></i> benschaf
-                </a>
-            </li>
-            <li>
-                <a href="https://github.com/anchvo" target="_blank" rel="noopener"
-                    aria-label="Visit anchvo on GitHub (opens page in new tab)">
-                    <i class="fa-brands fa-github"></i> anchvo
-                </a>
-            </li>
-        </ul>
-    </footer>
+        <!-- Game Container -->
+        <div id="gameboard"></div>
 
-    <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <!-- Draggabilly -->
-    <script src="https://unpkg.com/draggabilly@3/dist/draggabilly.pkgd.min.js"></script>
-    <!-- Font Awesome Kit Code -->
-    <script src="https://kit.fontawesome.com/2e8531be9c.js" crossorigin="anonymous"></script>
-    <!-- Dialog Script -->
-    <script src="assets/js/dialog.js" crossorigin="anonymous"></script>
-    <!-- Game Script -->
-    <script src="assets/js/game.js"></script>
+        <dialog id="hints-dialog">
+            <div id="close-hints" class="dialog-close-button"><i class="fas fa-times"></i></div>
+            <ul>
+                <li>Asexual + Transgender = Aromantic</li>
+                <li>Aromantic + Transgender = Bisexual</li>
+                <li>Asexual + Bisexual = Demiboy</li>
+                <li>Aromantic + Demiboy = Gay Male</li>
+                <li>Bisexual + Gay Male = Genderqueer</li>
+                <li>Demiboy + Genderqueer = Intersex</li>
+                <li>Asexual + Intersex = Lesbian</li>
+                <li>Gay Male + Lesbian = Nonbinary</li>
+                <li>Genderqueer + Nonbinary = Polyamory</li>
+                <li>Intersex + Polyamory = Rainbow Flag</li>
+                <li>Nonbinary + Rainbow Flag = Rainbow Flag Lavender</li>
+            </ul>
+            <div class="margin-top-20">
+                <span class="muted">None of the flag combinations are intended to show any real-life relationships or
+                    connections between the flags. The combinations are random only for the purpose of the game.</span>
+            </div>
+        </dialog>
+
+
+        <!-- Flag Dialog Box -->
+        <dialog id="flag-info">
+            <div class="dialog-close-button"><i class="fas fa-times"></i></div>
+            <div id="flag-info-content">
+                <h2 id="flag-info-title">Flag Name</h2>
+                <img id="flag-info-image" src="assets/images/flags/flag-name.png" alt="Flag Name">
+                <p id="flag-info-description">Flag Description</p>
+            </div>
+        </dialog>
+
+        <!-- Insrtructions Dialog Box -->
+        <dialog id="instructions">
+            <div id="close-instructions" class="dialog-close-button"><i class="fas fa-times"></i></div>
+            <h2>Welcome to Proud Flags Merge!</h2>
+            <p>Discover Pride flags and learn about their meanings in this interactive game.</p>
+
+            <h3>How to Play:</h3>
+            <ol>
+                <li><strong>Merge Flags:</strong> Drag and drop flags over each other to merge them into new flags.</li>
+                <li><strong>Learn:</strong> Click on any flag on the board to open a dialog box with information about
+                    the
+                    flag's meaning and history.</li>
+                <li><strong>Clear the Board:</strong> Use the "Clear Floating Flags" button to remove all flags from the
+                    gameboard and start fresh.</li>
+                <li><strong>Reset Game:</strong> Want to start over? Click the "Reset Game" link to reload the game.
+                    Careful, you will lose the flags that you have previously discovered.</li>
+            </ol>
+
+            <h3>Tips:</h3>
+            <ul>
+                <li>Flags can only be discovered by merging specific flags together. Experiment with different
+                    combinations!</li>
+                <li>Take your time and enjoy learning at your own pace.</li>
+            </ul>
+
+            <p>Thank you for playing Proud Flags Merge. Have fun discovering and learning!</p>
+        </dialog>
+
+        <footer>
+            <ul id="creator-github">
+                <li>
+                    <i class="fa-regular fa-copyright"></i>
+                </li>
+                <li>
+                    <a href="https://github.com/benschaf" target="_blank" rel="noopener"
+                        aria-label="Visit benschaf on GitHub (opens page in new tab)">
+                        <i class="fa-brands fa-github"></i> benschaf
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/anchvo" target="_blank" rel="noopener"
+                        aria-label="Visit anchvo on GitHub (opens page in new tab)">
+                        <i class="fa-brands fa-github"></i> anchvo
+                    </a>
+                </li>
+            </ul>
+        </footer>
+
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <!-- Draggabilly -->
+        <script src="https://unpkg.com/draggabilly@3/dist/draggabilly.pkgd.min.js"></script>
+        <!-- Font Awesome Kit Code -->
+        <script src="https://kit.fontawesome.com/2e8531be9c.js" crossorigin="anonymous"></script>
+        <!-- Dialog Script -->
+        <script src="assets/js/dialog.js" crossorigin="anonymous"></script>
+        <!-- Game Script -->
+        <script src="assets/js/game.js"></script>
+        <!-- Avatar Script -->
+        <script src="assets/js/avatar.js"></script>
 
 </body>
 
