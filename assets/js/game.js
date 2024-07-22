@@ -32,7 +32,7 @@ class Flag {
     }
 
     addAndDisplayDomElement(domElement, draggedAway) {
-        const domFlag = new DOMFlag(domElement, this.id, this.backgroundImage, draggedAway);
+        new DOMFlag(domElement, this.id, this.backgroundImage, draggedAway);
     }
 }
 
@@ -105,11 +105,6 @@ class DOMFlag {
         const draggedAwayFlags = domFlags.filter(domFlagInstance => domFlagInstance.draggedAway === true && domFlagInstance.id !== draggedDomFlagInstance.id);
         draggedAwayFlags.forEach(stillDomFlagInstance => {
             const stillFlagInstance = stillDomFlagInstance.getFlagInstance();
-
-            // if (stillDomFlagInstance.id === draggedDomFlagInstance.id) {
-            //     console.log('Same flag');
-            //     return;
-            // }
 
             console.log(stillDomFlagInstance.draggie.data('draggabilly').position);
             const stillDomFlagPosition = stillDomFlagInstance.draggie.data('draggabilly').position;
@@ -221,9 +216,6 @@ $(document).ready(function () {
             // add the first two flags to the discovered flags array and assign them a position
             const discoveredFlags = flags.filter(flag => flag.name === "Asexual" || flag.name === "Transgender");
 
-            // TESTING: ::::: add all flags to discovered flags for testing
-            // const discoveredFlags = flags;
-
             discoveredFlags.forEach((flag, i) => {
                 flag.discovered = true;
                 flag.setPosition(i);
@@ -232,23 +224,11 @@ $(document).ready(function () {
         });
 
     $('#clear-flags').on('click', () => {
-        console.log('Clearing flags');
         draggedAwayFlags = domFlags.filter(flag => flag.draggedAway === true);
 
         draggedAwayFlags.forEach(flag => {
             flag.domElement.remove();
             domFlags = domFlags.filter(domFlag => domFlag.id !== flag.id);
         });
-    });
-    createAndAppendDraggable(flag, null)
-});
-
-$('#clear-flags').on('click', () => {
-    console.log('Clearing flags');
-    draggedAwayFlags = domFlags.filter(flag => flag.draggedAway === true);
-
-    draggedAwayFlags.forEach(flag => {
-        flag.domElement.remove();
-        domFlags = domFlags.filter(domFlag => domFlag.id !== flag.id);
     });
 });
