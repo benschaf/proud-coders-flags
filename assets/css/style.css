@@ -64,7 +64,14 @@ fieldset {
 #form-avatar-container {
     width: 100%;
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
+}
+
+
+#form-avatar-container>div {
+    display: flex;
+    align-items: center;
 }
 
 #form-avatar-container img {
@@ -140,11 +147,11 @@ dialog {
     padding: 1rem;
     overflow-y: auto;
     color: #ffffff;
-  }
+}
 
 dialog::backdrop {
     background-color: hsla(0, 0%, 0%, 0.636);
-  }
+}
 
 .dialog-close-button {
     margin-left: auto;
@@ -159,17 +166,21 @@ dialog::backdrop {
 
 dialog p {
     margin-top: 20px;
-    color: rgba(217, 181, 4, 0.9); /* Adjust text color */
-    font-size: 14px; /* Adjust text size */
+    color: rgba(217, 181, 4, 0.9);
+    /* Adjust text color */
+    font-size: 14px;
+    /* Adjust text size */
 }
 
 
-dialog h2, dialog h3 {
+dialog h2,
+dialog h3 {
     color: #D9B504;
     margin-top: 20px;
 }
 
-dialog p, dialog li {
+dialog p,
+dialog li {
     line-height: 1.6;
     margin-top: 10px;
 }
@@ -203,6 +214,7 @@ dialog strong {
     gap: 10px;
     margin: 30px 0px 10px;
 }
+
 .game-button {
     padding: 10px;
     color: #ffffff;
@@ -273,7 +285,8 @@ dialog strong {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-#flag-info-title, #flag-info-description {
+#flag-info-title,
+#flag-info-description {
     margin: 20px 0;
 }
 
@@ -303,17 +316,13 @@ footer {
         width: 70vw;
     }
 
-    #form-avatar-container {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-    }
 
     dialog {
         width: initial;
     }
 
-    #gameboard, #game-controls {
+    #gameboard,
+    #game-controls {
         width: 80%;
     }
 }
@@ -340,5 +349,7 @@ footer {
         justify-content: space-between;
     }
 
+    #form-avatar-container>div {
+        display: initial;
+    }
 }
-
