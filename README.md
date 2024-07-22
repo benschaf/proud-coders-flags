@@ -47,7 +47,8 @@ The goal of "Proud Flags Merge" is to create a platform that promotes awareness 
 
 ## Credits
 
-- The Avatar images used in the project are sourced from [SOURCEEEEEEEEFSDFS](#)
+- The avatar images used in the project were created with [Free Avatar Maker](https://avatarmaker.com/)
+- The information and inspiration for the avatar used in the project are sourced from [Historical Figures of LGBTQ+ History](https://www.unco.edu/gender-sexuality-resource-center/resources/historical-figures.aspx)
 - The flag images used in the project are sourced from [library.LGBT](https://flag.library.lgbt/)
 - The flag informations are sourced from [Human Rights Campaign](https://www.hrc.org/resources/lgbtq-pride-flags) and partially from [library.LGBT](https://flag.library.lgbt/)
 - The project was inspired by the diverse and vibrant LGBTQIA+ community and aims to contribute positively by spreading knowledge and understanding.
