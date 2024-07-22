@@ -110,23 +110,41 @@ fieldset {
 }
 
 /* Game.html styles */
+
+#subtitle {
+    text-transform: uppercase;
+}
+
+#avatar-display {
+    display: flex;
+    justify-content: center;
+}
+
+#avatar-display-text {
+    margin-top: 5px;
+}
+
 dialog {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
-    background: white;
+    /*background: white;
     border-radius: 1rem;
     border-style: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
+    background-color: rgba(3, 57, 166, 0.9);
+    border: 1px solid #0339a6;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px 2px #0339a6;
     width: 90%;
     max-height: 90%;
     padding: 1rem;
     overflow-y: auto;
   }
 
-  dialog::backdrop {
+dialog::backdrop {
     background-color: hsla(0, 0%, 0%, 0.636);
   }
 
@@ -134,7 +152,7 @@ dialog {
     margin-left: auto;
     margin-right: 0;
     width: fit-content;
-    color: #333;
+    color: #ffffff;
 }
 
 .dialog-close-button:hover {
@@ -143,9 +161,10 @@ dialog {
 
 dialog p {
     margin-top: 20px;
-    color: #333; /* Adjust text color */
-    font-size: 16px; /* Adjust text size */
+    color: #ffffff; /* Adjust text color */
+    font-size: 14px; /* Adjust text size */
 }
+
 
 dialog h2, dialog h3 {
     color: #651173;
@@ -166,7 +185,7 @@ dialog strong {
 }
 
 .muted {
-    color: #333;
+    color: #ffffff;
 }
 
 .margin-top-20 {
@@ -183,14 +202,18 @@ dialog strong {
     margin: 30px 0px 10px;
 }
 .game-button {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;*/
     padding: 10px;
-    color: #000000;
+    color: #ffffff;
     font-weight: 500;
     flex-grow: 1;
     text-align: center;
-    background-color: #ffffff99;
+    /*background-color: #ffffff99;*/
+    background-color: rgba(3, 57, 166, 0.9);
+    border: 1px solid #0339a6;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px 2px #0339a6;
 }
 
 .game-button:hover {
@@ -204,10 +227,15 @@ dialog strong {
     height: 510px;
     width: 95%;
     max-width: 800px;
-    background-color: #ffffff99;
+    /* background-color: #ffffff99;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    border-radius: 10px; */
     padding: 10px;
+    background-color: rgba(3, 57, 166, 0.7);
+    border: 1px solid #0339a6;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px 2px #0339a6;
+    margin-bottom: 30px;
 }
 
 .draggable {
@@ -245,6 +273,8 @@ dialog strong {
     height: auto;
     display: block;
     margin: 0 auto;
+    border: 1px solid #0339a6;
+    border-radius: 8px;
 }
 
 #flag-info-title, #flag-info-description {
